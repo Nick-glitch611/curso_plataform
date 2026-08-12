@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap');
 
 body {
 
-    background-color: #00295e;
+    background-color: #061426;
 
 }
 
@@ -10,14 +11,13 @@ body {
 
     color:rgb(255, 255, 255);
     font-family: 'Poppins', sans-serif;
-    font-size: 60px;
+    font-size: 48px;
 
 }
 
 .logo {
 
     height: 300px;
-    border: 2px solid black;
     border-radius: 5px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 
@@ -25,13 +25,12 @@ body {
 
 .logo:hover {
 
-    background-color: black;
     transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 
 }
 
-heading {
+header {
 
     display: flex;
     flex-direction: column;
@@ -42,3 +41,32 @@ heading {
 
 }
 
+.quem {
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    background-color:#0D2340;
+    width: 50%;
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: 10px;
+
+}
+
+h2 {
+
+    color:rgb(255, 255, 255);
+    font-family: 'Poppins', sans-serif;
+    font-size: 50px;
+    margin: 0px;
+
+}
+
+.texto {
+
+    color:rgb(255, 255, 255);
+    font-family: 'Inter', sans-serif;
+
+}
