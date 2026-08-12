@@ -1,7 +1,15 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "<h1>Hello, World</h1>"
+    return render_template("index.html")
+
+@app.route("/login")
+def login():
+    return render_template("auth/login.html")
+
+@app.route("/cadastro")
+def cadastro():
+    return render_template("auth/cadastro.html")
