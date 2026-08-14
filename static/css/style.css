@@ -74,7 +74,7 @@ h2 {
 .auth {
 
     display: flex;
-    width: 20%;
+    width: 30%;
     background-color:#0D2340;
     margin: 50px auto;
     padding: 20px;
@@ -87,14 +87,15 @@ h2 {
 a {
 
     text-decoration: none;
-    color: #061426;
-    background-color: white;
     border-radius: 10px;
 
 }
 
 .entrar {
 
+    font-family: 'Poppins', sans-serif;
+    background-color: #061426;
+    color: white;
     font-size: 30px;
     margin: 20px auto;
     width: 50%;
@@ -103,9 +104,18 @@ a {
 
 .criar {
 
+    font-family:  'Poppins', sans-serif;;
+    background-color: white;
+    color: #061426;
     font-size: 15px;
     margin: 10px auto;
     width: 40%;
     padding: 5px;
+
+}
+
+.saudar {
+
+    font-size: 40px;
 
 }
