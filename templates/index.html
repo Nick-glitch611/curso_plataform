@@ -1,35 +1,25 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<html lang="pt-br">
-    <head>
-        <title>Nexora | Cursos Online </title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="../static/css/style.css">
-        <link rel="icon" type="image/png" href="../static/images/logo.png">
-    </head>
+{% block title %} Nexora|Cursos Online {% endblock %}
 
-    <body>
-        <header class="header">
-            <img src="../static/images/logo.png" class="logo" alt="logo">
-            <h1 class="bordao">Aprenda. Evolua. Conquiste.</h1>
-        </header>
+{% block header %}
 
-        <main>
-            <article class="quem">
-                <h2 class="quemsomos">Quem somos?</h2>
-                <p class="texto">A Nexora é uma plataforma de educação online criada para conectar você ao conhecimento. Oferecemos cursos práticos e acessíveis para ajudar você a desenvolver novas habilidades, ampliar seus conhecimentos e transformar aprendizado em novas oportunidades.</p>
-            </article>
+    <img src="{{ url_for('static', filename='css/style.css') }}" class="logo" alt="logo">
+    <h1 class="bordao">Aprenda. Evolua. Conquiste.</h1>
 
-            <nav class="auth">
-                <h2 class="saudar">Faça parte da Nexora:</h2>
-                <a class="entrar" href="{{ url_for('login') }}">Entrar</a>
-                <a class="criar" href="{{ url_for('cadastro') }}">Criar Conta</a>
-            </nav>
-        </main>
+{% endblock %}
 
-        <footer class="footer">
-            <p class="direitos">© 2026 Nexora. Todos os direitos reservados.</p>
-            <p class="direitos">Projeto desenvolvido para fins educacionais.</p>
-        </footer>
-    </body>
-</html>
+{% block content %}
+
+    <article class="quem">
+        <h2 class="quemsomos">Quem somos?</h2>
+        <p class="texto">A Nexora é uma plataforma de educação online criada para conectar você ao conhecimento. Oferecemos cursos práticos e acessíveis para ajudar você a desenvolver novas habilidades, ampliar seus conhecimentos e transformar aprendizado em novas oportunidades.</p>
+    </article>
+
+    <nav class="auth">
+        <h2 class="saudar">Faça parte da Nexora:</h2>
+        <a class="entrar" href="{{ url_for('login') }}">Entrar</a>
+        <a class="criar" href="{{ url_for('cadastro') }}">Criar Conta</a>
+    </nav>
+
+{% endblock %}
