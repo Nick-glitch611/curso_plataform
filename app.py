@@ -13,3 +13,6 @@ def login():
 @app.route("/cadastro")
 def cadastro():
     return render_template("auth/cadastro.html")
+
+if __name__ == "__main__":
+    app.run(debug=True)
