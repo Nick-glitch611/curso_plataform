@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap');
 
+html {
+    transform: ;
+}
 body {
 
     background-color: #061426;
@@ -7,7 +10,12 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
 
+main {
+
+    flex: 1;
+    text-align: center;
 }
 
 .bordao {
@@ -99,7 +107,6 @@ a {
 
     text-decoration: none;
     border-radius: 10px;
-
 }
 
 .entrar {
@@ -159,8 +166,87 @@ a {
 
 }
 
-.autenticar{
+.autenticar {
+    width: 40%;
+    padding: 50px;
+    margin: 30px auto;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: #0D2340;
+    box-shadow: 0 0 20px rgba(34, 93, 133, 0.45);
+}
 
-    background-color: #153764;
+.autenticar .cadastro {
+    width: 60%;
+    height: 30px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.autenticar .cadastro:hover {
+    border: 2px solid gray;
+}
+
+.autenticar .cadastro:focus {
+    outline: none;
+    border-color: #D3D3D3;
+    box-shadow: 0 0 40px rgba(200, 200, 200, 0.7);
+}
+
+.autenticar form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+}
+
+.autenticar label {
+    width: 60%;
+    text-align: left;
+    color:rgb(255, 255, 255);
+    font-family: 'Poppins', sans-serif;
+    margin: 0px;
+}
+
+.titulo {
+
+    color:rgb(255, 255, 255);
+    font-family: 'Poppins', sans-serif;
+    font-size: 48px;
+}
+
+#signin {
+
+    margin-top: 20px;
+    background-color: #123b57;
+    color: white;
+    font-size: 20px;
+    height: 50px;
+    font-family: 'Poppins', sans-serif;
+    border: transparent;
+    border-radius: 5px;
+    width: 60%;
+}
+
+form p {
+
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 30px;
+}
+
+form a {
+
+    color: deepskyblue;
+
+}
+
+form a:visited {
+
+    color: deepskyblue;
 
 }

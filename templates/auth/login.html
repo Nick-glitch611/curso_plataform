@@ -4,18 +4,21 @@
 
 {% block header %}
 
-    <h1>Nexora - Login</h1>
+    <h1 class="titulo">Nexora - Login</h1>
 
 {% endblock %}
 
 {% block content %}
 
-    <auth class="autenticar">
+    <section class="autenticar">
         <form>
-            <input type="text" placeholder="Usuário: ">
-            <input type="text" placeholder="senha">
-            <input type="submit" value="Continuar">
+            <label for="usuario">Nome de Usuário:</label>
+            <input type="text" class="cadastro">
+            <label for="senha">Senha:</label>
+            <input type="text" class="cadastro">
+            <input id="signin" type="submit" value="Sign In">
+            <p>Não tem uma conta? <a href="{{ url_for('cadastro') }}">Crie uma!</a></p>
         </form>
-    </auth>
+    </section>
 
 {% endblock %}
