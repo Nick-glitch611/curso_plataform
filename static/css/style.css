@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap');
 
 body {
-    background-color: #061426;
+    background-color: #020415;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -23,7 +23,6 @@ main {
     height: 180px;
     border-radius: 10px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 0 20px rgba(34, 93, 133, 0.45);
     margin: 40px auto;
 
 }

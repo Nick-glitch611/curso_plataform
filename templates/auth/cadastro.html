@@ -11,7 +11,7 @@
 {% block content %}
 
     <section class="autenticar">
-        <form method="POST">
+        <form method="POST" id="cadastro" data-erro="{{ erro }}">
             <label for="email">Insira seu endereço de email:</label>
             <input type="text" class="cadastro" name="email">
             <label for="usuario">Escolha um nome de usuário:</label>

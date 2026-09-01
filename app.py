@@ -1,8 +1,11 @@
 from flask import Flask, render_template, request
 import sqlite3
 from werkzeug.security import generate_password_hash
+import os
 
-conexao = sqlite3.connect("curso_plataform/database.db")
+diretorio = os.path.dirname(os.path.abspath(__file__))
+caminho = os.path.join(diretorio, "database.db")
+conexao = sqlite3.connect(caminho)
 db = conexao.cursor()
 
 db.execute("""
@@ -37,14 +40,25 @@ def cadastro():
 
         usuario = request.form["usuario"]
         email = request.form["email"]
-        senha1 = generate_password_hash(request.form["senha1"])
-        senha2 = generate_password_hash(request.form["senha2"])
+        senha1 = request.form["senha1"]
+        senha2 = request.form["senha2"]
 
-        if senha1 == senha2:
-            db.execute("""
-                INSERT INTO dados (usuario, senha, email)
-                VALUES (?, ?, ?)
-            """, (usuario, email, senha1))
+        if senha1 != senha2:
+            return render_template("auth/cadastro.html", erro=True)
+
+        senha1 = generate_password_hash(request.form["senha1"])
+
+        conexao = sqlite3.connect(caminho)
+        db = conexao.cursor()
+
+        db.execute("""
+            INSERT INTO dados (usuario, senha, email)
+            VALUES (?, ?, ?)
+        """, (usuario, email, senha1))
+
+        conexao.commit()
+        conexao.close()
+        
 
     return render_template("auth/cadastro.html")
 
