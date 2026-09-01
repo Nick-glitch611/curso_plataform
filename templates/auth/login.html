@@ -3,19 +3,19 @@
 {% block title %} Nexora | Login {% endblock %}
 
 {% block header %}
-
-    <h1 class="titulo">Nexora - Login</h1>
-
+    <figure>
+        <img src="{{ url_for('static', filename='images/tipo.png') }}" class="logo">
+    </figure>
 {% endblock %}
 
 {% block content %}
 
     <section class="autenticar">
-        <form>
+        <form method="POST">
             <label for="usuario">Nome de Usuário:</label>
-            <input type="text" class="cadastro">
+            <input type="text" class="cadastro" name="usuario">
             <label for="senha">Senha:</label>
-            <input type="text" class="cadastro">
+            <input type="password" class="cadastro" name="senha">
             <input id="signin" type="submit" value="Sign In">
             <p>Não tem uma conta? <a href="{{ url_for('cadastro') }}">Crie uma!</a></p>
         </form>

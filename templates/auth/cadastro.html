@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Nexora | Cadastro{% endblock %}
+
+{% block header %}
+    <figure>
+        <img src="{{ url_for('static', filename='images/tipo.png') }}" class="logo">
+    </figure>
+{% endblock %}
+
+{% block content %}
+
+    <section class="autenticar">
+        <form method="POST">
+            <label for="email">Insira seu endereço de email:</label>
+            <input type="text" class="cadastro" name="email">
+            <label for="usuario">Escolha um nome de usuário:</label>
+            <input type="text" class="cadastro" name="usuario">
+            <label for="senha1">Defina uma senha:</label>
+            <input type="password" class="cadastro" name="senha1">
+            <label for="senha2">Confirme sua senha:</label>
+            <input type="password" class="cadastro" name="senha2">
+            <input id="signin" type="submit" value="Criar Conta">
+            <p>Já tem uma conta? <a href="{{ url_for('login') }}">Entrar</a></p>
+        </form>
+    </section>
+
+{% endblock %}
