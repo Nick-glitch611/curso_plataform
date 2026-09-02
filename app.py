@@ -32,6 +32,21 @@ def login():
         usuario = request.form["usuario"]
         senha = generate_password_hash(request.form["senha"])
 
+    usuario_existe = db.execute(" SELECT * FROM dados WHERE usuario = ? ", (usuario,)).fetchone()
+
+    if not usuario_existe:
+        render_template("auth/login.html", erro=True)
+
+    else:
+        senha_correta = db.execute(" SELECT senha FROM DADOS WHERE usuario = ?", (usuario,)).fetchone()
+
+        if senha_correta:
+            aluno()
+        
+        else:
+            render_template("auth/login.html", erro=True)
+
+
     return render_template("auth/login.html")
 
 @app.route("/cadastro", methods=["GET", "POST"])
@@ -61,6 +76,10 @@ def cadastro():
         
 
     return render_template("auth/cadastro.html")
+
+@app.route("/aluno")
+def aluno():
+    render_template("auth/perfil.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

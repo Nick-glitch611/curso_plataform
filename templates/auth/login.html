@@ -10,7 +10,7 @@
 
 {% block content %}
 
-    <section class="autenticar">
+    <section class="autenticar" id="login" data-erro = "{{ erro }}"">
         <form method="POST">
             <label for="usuario">Nome de Usuário:</label>
             <input type="text" class="cadastro" name="usuario">

@@ -9,3 +9,21 @@ cadastro.addEventListener("submit", function(prevenir) {
         alert("As senhas devem ser iguais");
     }
 });
+
+const login = document.getElementById("login")
+
+login.addEventListener("submit", async function(existente) {
+    existente.preventDefault();
+
+    const usuario = document.querySelector('input[name="usuario"]')
+
+    const resultado = await resposta.json();
+
+    if (resultado.existe) {
+        alert("Usuário existe!");
+    } else {
+        alert("Usuário não existe!");
+    }
+
+    if (usuario)
+});
