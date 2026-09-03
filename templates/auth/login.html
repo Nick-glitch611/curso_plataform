@@ -1,3 +1,4 @@
+```html
 {% extends "base.html" %}
 
 {% block title %} Nexora | Login {% endblock %}
@@ -9,14 +10,17 @@
 {% endblock %}
 
 {% block content %}
+    <section class="autenticar">
+        <form method="POST" id="login">
+            <label for="usuario">Nome de Usuário:</label>
+            <input type="text" class="cadastro" name="usuario">
 
-    <form method="POST" id="login">
-        <label for="usuario">Nome de Usuário:</label>
-        <input type="text" class="cadastro" name="usuario">
-        <label for="senha">Senha:</label>
-        <input type="password" class="cadastro" name="senha">
-        <input id="signin" type="submit" value="Sign In">
-        <p>Não tem uma conta?<a href="{{ url_for('cadastro') }}">Crie uma!</a></p>
-    </form>
+            <label for="senha">Senha:</label>
+            <input type="password" class="cadastro" name="senha">
 
+            <input id="signin" type="submit" value="Sign In">
+            <p>Não tem uma conta?<a href="{{ url_for('cadastro') }}">Crie uma!</a></p>
+        </form>
+    </section>
 {% endblock %}
+```
