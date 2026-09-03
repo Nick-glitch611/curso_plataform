@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import sqlite3
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 import os
 
 diretorio = os.path.dirname(os.path.abspath(__file__))
@@ -27,25 +27,28 @@ def home():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+
     if request.method == "POST":
 
-        usuario = request.form["usuario"]
-        senha = generate_password_hash(request.form["senha"])
+        dados = request.get_json()
 
-    usuario_existe = db.execute(" SELECT * FROM dados WHERE usuario = ? ", (usuario,)).fetchone()
+        usuario = dados["usuario"]
+        senha = dados["senha"]
 
-    if not usuario_existe:
-        render_template("auth/login.html", erro=True)
+        conexao = sqlite3.connect(caminho)
+        db = conexao.cursor()
 
-    else:
-        senha_correta = db.execute(" SELECT senha FROM DADOS WHERE usuario = ?", (usuario,)).fetchone()
+        resultado = db.execute ("""
+            SELECT senha FROM dados WHERE usuario = ?
+        """, (usuario,)).fetchone()
 
-        if senha_correta:
-            aluno()
+        conexao.close()
+
+        if resultado and check_password_hash(resultado[0], senha):
+            return jsonify({"sucesso": True})
         
         else:
-            render_template("auth/login.html", erro=True)
-
+            return jsonify({"sucesso": False})
 
     return render_template("auth/login.html")
 
@@ -69,7 +72,7 @@ def cadastro():
         db.execute("""
             INSERT INTO dados (usuario, senha, email)
             VALUES (?, ?, ?)
-        """, (usuario, email, senha1))
+        """, (usuario, senha1, email))
 
         conexao.commit()
         conexao.close()
@@ -79,7 +82,7 @@ def cadastro():
 
 @app.route("/aluno")
 def aluno():
-    render_template("auth/perfil.html")
+    return render_template("aluno/perfil.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

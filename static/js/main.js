@@ -1,29 +1,45 @@
 const cadastro = document.getElementById("cadastro");
 
-cadastro.addEventListener("submit", function(prevenir) {
-    const senha1 = document.querySelector('input[name="senha1"]').value;
-    const senha2 = document.querySelector('input[name="senha2"]').value;
+if (cadastro != null) {
+    cadastro.addEventListener("submit", function(prevenir) {
+        const senha1 = document.querySelector('input[name="senha1"]').value;
+        const senha2 = document.querySelector('input[name="senha2"]').value;
 
-    if (senha1 !== senha2) {
-        prevenir.preventDefault();
-        alert("As senhas devem ser iguais");
-    }
-});
+        if (senha1 !== senha2) {
+            prevenir.preventDefault();
+            alert("As senhas devem ser iguais");
+        }
+    });
+}
 
-const login = document.getElementById("login")
+const login = document.getElementById("login");
 
-login.addEventListener("submit", async function(existente) {
-    existente.preventDefault();
+if (login != null) {
 
-    const usuario = document.querySelector('input[name="usuario"]')
+    login.addEventListener("submit", async function(event) {
 
-    const resultado = await resposta.json();
+        event.preventDefault();
 
-    if (resultado.existe) {
-        alert("Usuário existe!");
-    } else {
-        alert("Usuário não existe!");
-    }
+        const usuario = document.querySelector('input[name="usuario"]').value;
+        const senha = document.querySelector('input[name="senha"]').value;
 
-    if (usuario)
-});
+        const resposta = await fetch("/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                usuario: usuario,
+                senha: senha
+            })
+        });
+
+        const resultado = await resposta.json();
+
+        if (resultado.sucesso) {
+            window.location.href = "/aluno";
+        } else {
+            alert("Usuário ou senha incorretos");
+        }
+    });
+}
